@@ -1,0 +1,32 @@
+jobs:
+
+#---------------------------------------------------------------#
+#-------------------------   Release   -------------------------#
+#---------------------------------------------------------------#
+
+# Create PROD Release
+  - name: e2eshipdemo-release-ecs-prod
+    type: release
+    steps:
+      - IN: e2eshipdemo-deploy-ecs-test
+        switch: off
+      - TASK: managed
+        bump: final
+    notify:
+      - on_success: slack
+    flags:
+      - e2eShippableDemo
+
+# # TRIGGER PROD deployment
+#   - name: trig_prod_deploy
+#     type: runCLI
+#     steps:
+#       - IN: auto_repo 
+#         switch: off
+#       - IN: release_app
+#         switch: off
+#       - OUT: prod_app_ver
+#       - TASK:
+#         - script: IN/auto_repo/gitRepo/infra/setVer.sh release_app prod_app_ver
+#     flags:
+#       - e2eShippableDemo

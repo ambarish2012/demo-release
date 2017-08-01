@@ -1,0 +1,14 @@
+resources:
+
+#---------------------------------------------------------------#
+#--------------------------- Release ---------------------------#
+#---------------------------------------------------------------#
+
+# Current PROD version - used for pinning
+  - name: prod_app_ver
+    type: params
+    version:
+      params:
+        RELEASE_VER_NUMBER: "1.0.0"
+    flags:
+      - e2eShippableDemo
