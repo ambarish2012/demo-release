@@ -19,7 +19,7 @@ jobs:
 
 # # TRIGGER PROD deployment
 #   - name: trig_prod_deploy
-#     type: runCLI
+#     type: runSh
 #     steps:
 #       - IN: auto_repo 
 #         switch: off
